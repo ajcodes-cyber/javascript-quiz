@@ -13,6 +13,11 @@
     align-items: center;
 }
 
-p {
-    color: red;
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: center;
 }
