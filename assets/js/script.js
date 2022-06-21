@@ -1,5 +1,6 @@
 var startButtonEl = document.querySelector ("#start-button");
 var questionDisplay = document.querySelector("#main-header");
+var answerDisplayEl = document.querySelector(".answer-options");
 
 var questionObject = [
 
@@ -27,15 +28,24 @@ var questionObject = [
 ];
 
 var startQuiz = function() {
-var quizQuestion = document.createElement("div");
-quizQuestion.className = "questions";    
+// var quizQuestionEl = document.createElement("div");
+// quizQuestionEl.className = "questions";    
 
-var q2 = document.createElement("p");
+// var q2 = document.createElement("p");
 questionDisplay.textContent = questionObject[1].question2;
 
-quizQuestion.appendChild(q2);
+// quizQuestionEl.appendChild(q2El);
+
+var quizAnswersEl = document.createElement("li");
+quizAnswersEl.className = "answer-list";
+
+// var answerInfo = document.createElement("div");
+// answerInfo.className = "answer-info";
+
+answerInfo.innerHTML = "<h3 class='answer-name'>" + questionObject[0].question1;
+quizAnswersEl.appendChild(answerInfo);
 
 }
 
-startButtonEl.addEventListener("click", startQuiz);
+startButton.addEventListener("click", startQuiz);
 
