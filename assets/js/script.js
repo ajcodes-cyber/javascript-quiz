@@ -1,6 +1,6 @@
 var startButton = document.querySelector ("#start-button");
 var questionDisplay = document.querySelector("#main-header");
-// var answerDisplayEl = document.querySelector(".answer-options");
+var answerDisplayEl = document.querySelector(".answer-options");
 
 var questionObject = [
 
@@ -9,26 +9,27 @@ var questionObject = [
     correct: "3"
 },
 
-{   question2: "What does HTML stand for?",
-    answers2: ["Hypertext Markup Language", "Happy Times Meeting Lobbyists", "Hens Train Male Llamas", "Hyper Test Markup Language"],
-    correct2: "1"
+{   question: "What does HTML stand for?",
+    answers: ["Hypertext Markup Language", "Happy Times Meeting Lobbyists", "Hens Train Male Llamas", "Hyper Test Markup Language"],
+    correct: "1"
 },
 
 {
-    question3: "What is the 'not' operator?",
-    answers3: ["null", "&", "Na", "!"],
-    correct3: "4"
+    question: "What is the 'not' operator?",
+    answers: ["null", "&", "Na", "!"],
+    correct: "4"
 },
 
 {
-    question4: "Which item is not a primitive data type in JavaScript?",
-    answers4: ["string", "float", "number", "boolean"],
-    correct4: "2"
+    question: "Which item is not a primitive data type in JavaScript?",
+    answers: ["string", "float", "number", "boolean"],
+    correct: "2"
 }
 ];
 
 var startQuiz = function() {
     nextQuestion();
+    var questionNum = 0;
 // // var quizQuestionEl = document.createElement("div");
 // // quizQuestionEl.className = "questions";    
 
@@ -49,6 +50,10 @@ var startQuiz = function() {
 }
 
 var nextQuestion = function() {
+    show(questionObject[questionNum]);
+}
+
+var show = function(question) {
 
 }
 
