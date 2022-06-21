@@ -41,6 +41,7 @@
     background-color: purple;
     color: white;
     margin: 10px;
+    border: 1px solid black;
 }
 
 .btn-margin {
