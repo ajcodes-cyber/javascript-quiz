@@ -2,35 +2,37 @@ var startButton = document.querySelector ("#start-button");
 var questionDisplay = document.querySelector("#main-header");
 var answerDisplayEl = document.querySelector("#answers");
 var questionNum = 0;
+var playerScore= 0;
 
 var questionObject = [
    
     {   question: "what is a Boolean?",
-        answers: [{text: "true", correct: false },
-        {text: "false", correct: false },
-        {text: "both", correct: true },
-        {text: "none", correct: false}],
+        answers: [{text: "true", correct: false, id:0},
+        {text: "false", correct: false, id:0},
+        {text: "both", correct: true, id:25},
+        {text: "none", correct: false, id:0}],
         
     },
    
     {   question: "What does HTML stand for?",
-        answers: [{text:"Hypertext Markup Language", correct: true}, 
-        {text:"Happy Times Meeting Lobbyists", correct: false}, 
-        {text:"Hens Train Male Llamas", correct: false},
-        {text:"Hyper Test Markdown Language", correct: false}],
+        answers: [{text:"Hypertext Markup Language", correct: true, id:25}, 
+        {text:"Happy Times Meeting Lobbyists", correct: false, id:0}, 
+        {text:"Hens Train Male Llamas", correct: false, id:0},
+        {text:"Hyper Test Markdown Language", correct: false, id:0}],
    },
+
    {   question: "Which answer is the 'not' operator",
-       answers: [{text:"null", correct: false}, 
-               {text:"&", correct: false}, 
-               {text:"Na", correct: false}, 
-               {text:"!", correct: true}],
+       answers: [{text:"null", correct: false, id:0}, 
+               {text:"&", correct: false, id:0}, 
+               {text:"Na", correct: false, id:0}, 
+               {text:"!", correct: true, id:25}],
    },
    
    {   question: "Which one is not a primitive data-type in javascript",
-       answers: [{text:"string", correct: false},
-               {text:"float", correct: true}, 
-               {text:"boolean", correct: false}, 
-               {text:"number", correct: false}],
+       answers: [{text:"string", correct: false, id:0},
+               {text:"float", correct: true, id:25}, 
+               {text:"boolean", correct: false, id:0}, 
+               {text:"number", correct: false, id:0],
    }
    ];
 
@@ -67,7 +69,7 @@ var show = function(question) {
     question.answers.forEach(answer => {
         var answerButton = document.createElement("button");
         answerButton.innerHTML = answer.text;
-        if(answer.correct) {
+        if(answers.correct) {
             answerButton.dataset.correct = answer.correct;
         }
         answerButton.classList.add('button')
@@ -81,8 +83,9 @@ var show = function(question) {
 }
 
 
-var select = function(e){
-
+var select = function(event){
+    var targetedButton = event.target().value;
+    console.log(targetedButton);
 }
 
 var reset = function(){
@@ -93,4 +96,6 @@ var reset = function(){
 }
 
 startButton.addEventListener("click", startQuiz);
-
+nextButton.addEventListener("click", function() {
+    questionNum++
+})
