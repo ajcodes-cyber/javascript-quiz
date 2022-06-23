@@ -1,8 +1,10 @@
 var startButton = document.querySelector ("#start-button");
 var questionDisplay = document.querySelector("#main-header");
 var answerDisplayEl = document.querySelector("#answers");
-var questionNum = 0;
 var playerScore= 0;
+var nextButton = document.querySelector('#next-btn');
+var mainContent = document.querySelector('#main-content');
+var questionNum = 0;
 
 var questionObject = [
    
@@ -32,7 +34,7 @@ var questionObject = [
        answers: [{text:"string", correct: false, id:0},
                {text:"float", correct: true, id:25}, 
                {text:"boolean", correct: false, id:0}, 
-               {text:"number", correct: false, id:0],
+               {text:"number", correct: false, id:0}],
    }
    ];
 
@@ -84,18 +86,38 @@ var show = function(question) {
 
 
 var select = function(event){
-    var targetedButton = event.target().value;
-    console.log(targetedButton);
+    var targetedButton = event.target;
+    var correct = targetedButton.dataset.correct;
+    setStatusClass(document.body, correct);
+    Array.from(answerDisplayEl.children).forEach(button => {
+        setStatusClass(button, button.dataset.correct)
+    })
 }
 
 var reset = function(){
+    clearStatusClass(document.body)
     while (answerDisplayEl.firstChild) {
         answerDisplayEl.removeChild
         (answerDisplayEl.firstChild);
     }
 }
 
+function setStatusClass(element, correct) {
+    clearStatusClass(element)
+    if (correct) {
+      element.classList.add('correct')
+    } else {
+      element.classList.add('wrong')
+    }
+  }
+  
+  function clearStatusClass(element) {
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
+  }
+
 startButton.addEventListener("click", startQuiz);
-nextButton.addEventListener("click", function() {
+nextButton.addEventListener("click", () => {
     questionNum++
+    nextQuestion();
 })
