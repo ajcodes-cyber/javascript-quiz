@@ -91,6 +91,10 @@ var select = function(event){
     setStatusClass(document.body, correct);
     Array.from(answerDisplayEl.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
+    if (correct) {
+        playerScore+=25;
+        console.log(playerScore);
+    }
     })
 }
 
