@@ -8,7 +8,8 @@ var questionObject = [
     {   question: "what is a Boolean?",
         answers: [{text: "true", correct: false },
         {text: "false", correct: false },
-        {text: "both", correct: true }],
+        {text: "both", correct: true },
+        {text: "none", correct: false}],
         
     },
    
@@ -56,6 +57,7 @@ var startQuiz = function() {
 }
 
 var nextQuestion = function() {
+    reset();
     show(questionObject[questionNum]);
     
 }
@@ -68,18 +70,26 @@ var show = function(question) {
         if(answer.correct) {
             answerButton.dataset.correct = answer.correct;
         }
-        startButton.classList.add('button')
+        answerButton.classList.add('button')
         
-        startButton.addEventListener("click", select);
+        answerButton.addEventListener("click", select);
 
         answerDisplayEl.appendChild(answerButton);
 
-
     })
+    
 }
 
-var select = function(){
 
+var select = function(e){
+
+}
+
+var reset = function(){
+    while (answerDisplayEl.firstChild) {
+        answerDisplayEl.removeChild
+        (answerDisplayEl.firstChild);
+    }
 }
 
 startButton.addEventListener("click", startQuiz);
