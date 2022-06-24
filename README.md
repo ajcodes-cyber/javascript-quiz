@@ -28,7 +28,7 @@ THEN I can save my initials and score
 
 ## Installation
 
-In order to view the homepage for Horiseon, you will need to visit the live deployment URL: https://ajcodes-cyber.github.io/javascript-quiz/
+In order to view the code quiz, you will need to visit the live deployment URL: https://ajcodes-cyber.github.io/javascript-quiz/
 
 ## Usage
 
